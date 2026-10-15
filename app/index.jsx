@@ -17,7 +17,7 @@
 
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import { View, Text, Image, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, Image, FlatList } from 'react-native';
 import { Feather, Ionicons } from '@expo/vector-icons';
 import { Link } from 'expo-router';
 

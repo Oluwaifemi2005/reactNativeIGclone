@@ -21,7 +21,7 @@ import { View, Text, Image, FlatList } from 'react-native';
 import { Feather, Ionicons } from '@expo/vector-icons';
 import { Link } from 'expo-router';
 
-import '../global.css';
+
 
 export default function App() {
   const stories = [
@@ -180,6 +180,8 @@ const posts = [
                 
                 />
                   <Link href="/formInput" className='text-blue-500'>Open form</Link>
+                  <Link href="/profile" className='text-blue-500'>Profile</Link>
+                  <Link href="/about" className='text-blue-500'>About</Link>
 
 
             <View className='flex-row justify-between px-4 py-3 border-t border-gray-200 bg-white'>

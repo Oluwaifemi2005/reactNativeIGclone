@@ -17,7 +17,7 @@ export default function RootLayout() {
     }}
     >
       <Stack.Screen
-        name="(tabs)"
+        name="(drawer)"
         options={{
           title: 'Home',
           headerShown: false
@@ -61,6 +61,16 @@ export default function RootLayout() {
             backgroundColor: 'purple'
           }
         }}
+      />
+
+      <Stack.Screen
+        name='modal'
+        options={{presentation: 'formSheet',
+          sheetAllowedDetents: [0.25, 0.5, 1],
+          sheetInitialDetentIndex: 1,  sheetGrabberVisible: true,
+          sheetCornerRadius: 24,
+          sheetLargestUndimmedDetentIndex: 1,
+          headerShown: true}}
       />
     </Stack>
   );

@@ -182,6 +182,7 @@ const posts = [
                   <Link href="/formInput" className='text-blue-500'>Open form</Link>
                   <Link href="/profile" className='text-blue-500'>Profile</Link>
                   <Link href="/about" className='text-blue-500'>About</Link>
+                  <Link href="/modal" className='text-blue-500'>Modal</Link>
 
 
             <View className='flex-row justify-between px-4 py-3 border-t border-gray-200 bg-white'>

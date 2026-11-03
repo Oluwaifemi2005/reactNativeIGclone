@@ -31,8 +31,14 @@
 import { View, Text } from 'react-native'
 import About from '../components/about';
 import React from 'react'
+import { DataContext } from 'context/DataContext';
+import { useContext } from 'react';
 
 const AboutPage = () => {
+  const contextData = useContext(DataContext);
+  console.log('====================================');
+  console.log(contextData);
+  console.log('====================================');
   return (
     <View>
       <About/>

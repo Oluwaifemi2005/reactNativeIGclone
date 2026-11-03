@@ -20,10 +20,14 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { View, Text, Image, FlatList } from 'react-native';
 import { Feather, Ionicons } from '@expo/vector-icons';
 import { Link } from 'expo-router';
+import { useData } from 'context/DataContext'; 
 
 
 
 export default function App() {
+  const contextData = useData()
+  // console.log(contextData);
+
   const stories = [
   { id: '1', username: 'Jane', letter: 'J' },
   { id: '2', username: 'Manny', letter: 'M' },
@@ -84,6 +88,8 @@ const posts = [
     caption: 'Finding beauty in the ordinary',
   },
 ];
+
+
   return (
     <SafeAreaProvider>
       <SafeAreaView className='flex-1 bg-white'>
@@ -183,6 +189,13 @@ const posts = [
                   <Link href="/profile" className='text-blue-500'>Profile</Link>
                   <Link href="/about" className='text-blue-500'>About</Link>
                   <Link href="/modal" className='text-blue-500'>Modal</Link>
+                  <Link href="/login" className='text-blue-500'>Login Page</Link>
+                  <Link href="/signup" className='text-blue-500'>Signup Page</Link>
+                  <Link href="/post" className='text-blue-500'>Get</Link>
+                  <Link href="/contextExample" className='text-blue-500'>User</Link>
+                  <Link href="/postRequest" className='text-blue-500'>Post</Link>
+                  <Link href="/putRequest" className='text-blue-500'>Put</Link>
+
 
 
             <View className='flex-row justify-between px-4 py-3 border-t border-gray-200 bg-white'>

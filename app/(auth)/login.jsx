@@ -3,8 +3,11 @@ import React from 'react'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 import { Link } from 'expo-router';
+import { useAuth } from 'context/authContext';
+import { useRouter } from 'expo-router';
 
 const Login = () => {
+  const auth = useAuth()
     const loginSchema = Yup.object().shape ({
         email: Yup.string().email('Enter a valid email').required('Email is required'),
         password: Yup.string().required('Password is required'),
@@ -28,7 +31,8 @@ const Login = () => {
           }}
           validationSchema={loginSchema}
           onSubmit={(values) => {
-            console.log('Login values:', values);
+            // console.log('Login values:', values);
+            auth.userLogin(values)
           }}
         >
           {({

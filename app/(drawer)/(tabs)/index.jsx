@@ -1,32 +1,27 @@
-// import { ScreenContent } from 'components/ScreenContent';
-// import { StatusBar } from 'expo-status-bar';
-
-// import './global.css';
-// import { SafeAreaProvider } from 'react-native-safe-area-context';
-
-// export default function App() {
-//   return (
-//     <SafeAreaProvider>
-//       <ScreenContent title="Home" path="App.tsx"></ScreenContent>
-//       <StatusBar style="auto" />
-//     </SafeAreaProvider>
-//   );
-// }
-
-
 
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import { View, Text, Image, FlatList } from 'react-native';
+import { View, Text, Image, FlatList, Pressable } from 'react-native';
 import { Feather, Ionicons } from '@expo/vector-icons';
-import { Link } from 'expo-router';
+import { Link, Redirect } from 'expo-router';
 import { useData } from 'context/DataContext'; 
+import { useAuth } from 'context/authContext';
 
 
 
 export default function App() {
   const contextData = useData()
+  const auth = useAuth()
   // console.log(contextData);
+
+
+  if (auth.isLoading) {
+      return null;
+  }
+
+  if (!auth.isLoggedIn) {
+      return <Redirect href="/login" />;
+  }
 
   const stories = [
   { id: '1', username: 'Jane', letter: 'J' },
@@ -102,6 +97,9 @@ const posts = [
               <Feather name="plus-square" size={26} color="black" />
               <Feather name="heart" size={26} color="black" />
               <Ionicons name="paper-plane-outline" size={26} color="black" />
+              <Pressable onPress={() => auth.userLogout()}>
+                <Text>Logout</Text>
+              </Pressable>
             </View>
           </View>
         </View>

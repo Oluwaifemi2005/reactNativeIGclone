@@ -3,6 +3,7 @@ import { Stack } from 'expo-router';
 import '../global.css';
 import DataProvider from 'context/DataContext';
 import { UserProvider } from 'context/UserContext';
+import { AuthProvider } from 'context/authContext';
 
 const RootNavigation = () => {
   return(
@@ -86,10 +87,12 @@ const RootNavigation = () => {
 
 export default function RootLayout() {
   return (
-    <DataProvider>
-      <UserProvider>
-      <RootNavigation/>
-      </UserProvider>
-    </DataProvider>
+    <AuthProvider>
+      <DataProvider>
+        <UserProvider>
+        <RootNavigation/>
+        </UserProvider>
+      </DataProvider>
+    </AuthProvider>
   );
 }

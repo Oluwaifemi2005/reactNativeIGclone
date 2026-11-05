@@ -4,10 +4,11 @@ import { useEffect, useState } from 'react'
 
 const Post = () => {
     const [posts, setPosts] = useState([])
+    const [refreshing, setRefreshing] = useState(false)
     useEffect(() => {
         const fetchData = async (params) => {
             try {
-                const response = await axios.get('https://dummyjson.com/posts');
+                const response = await axios.get('https://dummyjson.com/posts?limit=20');
                 setPosts(response.data.posts)
                 
             } catch (error) {
@@ -18,6 +19,34 @@ const Post = () => {
         fetchData()
 
     }, [])
+
+
+    const refreshPost = async () => {
+                try {
+                    setRefreshing(true)
+            const res = await axios.get('https://dummyjson.com/posts?limit=15');
+            setPosts(res.data.posts)
+                
+            } catch (error) {
+                console.error(error);
+                
+            }
+            setRefreshing(false)
+    }
+
+
+    const morePost = async () => {
+                try {
+                    // setRefreshing(true)
+            const res = await axios.get('https://dummyjson.com/posts?limit=10');
+            setPosts([...posts, res.data.posts])
+                
+            } catch (error) {
+                console.error(error);
+                
+            }
+            // setRefreshing(false)
+    }
     
   return (
     <View>
@@ -35,6 +64,11 @@ const Post = () => {
 
         )}
         keyExtractor={(item) => item.id.toString()}
+        initialNumToRender={10}
+        onRefresh={refreshPost}
+        refreshing={refreshing}
+        onEndReached={morePost}
+        onEndReachedThreshold={0.75}
 
       />
     </View>

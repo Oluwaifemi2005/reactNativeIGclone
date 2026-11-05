@@ -4,8 +4,12 @@ import '../global.css';
 import DataProvider from 'context/DataContext';
 import { UserProvider } from 'context/UserContext';
 import { AuthProvider } from 'context/authContext';
+import { useAuth } from 'context/authContext';
 
 const RootNavigation = () => {
+
+  const auth = useAuth()
+  console.log(auth.isLoggedIn)
   return(
       <Stack
         screenOptions={{
@@ -78,6 +82,16 @@ const RootNavigation = () => {
             sheetLargestUndimmedDetentIndex: 1,
             headerShown: true}}
         />
+
+
+            {/* <Stack.Protected guard={auth.isLoggedIn}> */}
+            <Stack.Screen
+              name='post'
+              options={{
+                headerShown: false
+              }}
+            />
+            {/* </Stack.Protected> */}
       </Stack>
 
   )

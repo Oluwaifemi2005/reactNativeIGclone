@@ -19,9 +19,9 @@ export default function App() {
       return null;
   }
 
-  if (!auth.isLoggedIn) {
-      return <Redirect href="/login" />;
-  }
+  // if (!auth.isLoggedIn) {
+  //     return <Redirect href="/login" />;
+  // }
 
   const stories = [
   { id: '1', username: 'Jane', letter: 'J' },

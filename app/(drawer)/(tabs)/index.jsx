@@ -193,6 +193,7 @@ const posts = [
                   <Link href="/contextExample" className='text-blue-500'>User</Link>
                   <Link href="/postRequest" className='text-blue-500'>Post</Link>
                   <Link href="/putRequest" className='text-blue-500'>Put</Link>
+                  <Link href="/map" className='text-blue-500'>Map</Link>
 
 
 

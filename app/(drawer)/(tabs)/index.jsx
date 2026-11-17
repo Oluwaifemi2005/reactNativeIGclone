@@ -196,6 +196,7 @@ const posts = [
                   <Link href="/map" className='text-blue-500'>Map</Link>
                   <Link href="/getLocation" className='text-blue-500'>Get Location</Link>
                   <Link href="/mapScreen" className='text-blue-500'>Get Map</Link>
+                  <Link href="/camera" className='text-blue-500'>Camera</Link>
                   
 
 

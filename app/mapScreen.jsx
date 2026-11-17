@@ -158,10 +158,17 @@ data.elements.forEach((place) => {
   tintColor: place.type === "hospital" ? "red" : "blue",
 }));
 
+// console.log(nearbyPlaces)
+// console.log(placeMarkers,'place')
+
+
+
   return (
     <View style={{ flex: 1 }}>
+      <View style={{flex: 2}}>
       {Platform.OS === "ios" ? (
         <AppleMaps.View
+
             markers={placeMarkers}
             ref={mapRef}
           style={{ flex: 1 }}
@@ -194,6 +201,11 @@ data.elements.forEach((place) => {
       ) : Platform.OS === "android" ? (
         <GoogleMaps.View style={{ flex: 1 }} />
       ) : null}
+
+      </View>
+
+
+      <View style={{flex: 1}}>
 
       {selectedLocation && (
         <View
@@ -291,7 +303,7 @@ data.elements.forEach((place) => {
         </Pressable>
 
 
-        {nearbyPlaces.map((place) => (
+        {/* {nearbyPlaces.map((place) => (
   <View
     key={place.id}
     style={{
@@ -311,7 +323,8 @@ data.elements.forEach((place) => {
 
     <Text>Longitude: {place.longitude}</Text>
   </View>
-))}
+        ))} */}
+      </View>
 
     </View>
   );
